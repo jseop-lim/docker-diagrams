@@ -1,4 +1,7 @@
 FROM python:3.11.1-alpine
+
+COPY cacert.pem /usr/local/share/ca-certificates/cacert.crt
+RUN cat /usr/local/share/ca-certificates/cacert.crt >> /etc/ssl/certs/ca-certificates.crt
 RUN apk add --update --no-cache \
     curl\
     graphviz\
